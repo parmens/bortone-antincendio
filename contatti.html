@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contatti | Bortone Antincendio</title>
+    <meta
+      name="description"
+      content="Richiedi un sopralluogo tecnico: contatti telefonici, email e modulo per assistenza antincendio a Roma."
+    />
+    <link rel="canonical" href="https://www.bortoneantincendio.it/contatti.html" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#0b0b0b" />
+    <meta property="og:site_name" content="Bortone Antincendio" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Contatti | Bortone Antincendio" />
+    <meta
+      property="og:description"
+      content="Richiedi un sopralluogo tecnico: contatti telefonici, email e modulo per assistenza antincendio a Roma."
+    />
+    <meta property="og:url" content="https://www.bortoneantincendio.it/contatti.html" />
+    <meta
+      property="og:image"
+      content="https://www.bortoneantincendio.it/assets/og-bortone-1200x630.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html" aria-label="Bortone Antincendio">
+          <img src="assets/logo-bortone.png" alt="Logo Bortone Antincendio" width="646" height="806" />
+          <span>Bortone Antincendio</span>
+        </a>
+        <button class="nav-toggle" aria-expanded="false" aria-label="Apri menu">
+          Menu
+        </button>
+        <nav class="site-nav">
+          <a href="index.html">Home</a>
+          <a href="servizi.html">Servizi</a>
+          <a href="chi-siamo.html">Chi siamo</a>
+          <a class="active" href="contatti.html">Contatti</a>
+        </nav>
+        <a class="button primary small" href="contatti.html">Richiedi un sopralluogo</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero contact-hero">
+        <div class="container">
+          <div class="contact-hero-inner">
+            <h1 class="reveal">Richiedi un sopralluogo tecnico</h1>
+            <p class="reveal contact-hero-sub" data-delay="1">
+              Ti rispondiamo con una proposta operativa e un piano di intervento.
+            </p>
+            <p class="reveal contact-hero-hours" data-delay="1">
+              Orari ufficio: Lun-Ven 08:00-13:00, 14:30-17:00
+            </p>
+            <div class="contact-hero-grid reveal" data-delay="2">
+              <div class="contact-hero-item">
+                <div class="contact-hero-emoji">📲</div>
+                <p class="contact-hero-text">Tel. &amp; Fax 06 / 70.300.981</p>
+                <a class="button contact-hero-link" href="tel:+390670300981">Chiama</a>
+              </div>
+              <div class="contact-hero-item">
+                <div class="contact-hero-emoji">📧</div>
+                <p class="contact-hero-text">info@bortoneantincendio.it</p>
+                <a class="button contact-hero-link" href="mailto:info@bortoneantincendio.it">
+                  Invia un'email
+                </a>
+              </div>
+              <div class="contact-hero-item">
+                <div class="contact-hero-emoji">🧭</div>
+                <p class="contact-hero-text">Via Casilina, 313A 00176 Roma</p>
+                <a
+                  class="button contact-hero-link"
+                  href="https://www.google.com/maps/search/?api=1&query=Via+Casilina+313A+00176+Roma"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Maps
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="reveal">Invia una richiesta</h2>
+            <p class="reveal" data-delay="1">
+              Compila il modulo e sarai ricontattato dal nostro team tecnico.
+            </p>
+          </div>
+          <div class="card-grid">
+            <div class="card reveal contact-form-card">
+              <form id="contact-form" class="form-grid" action="https://formspree.io/f/mykdylqn" method="post">
+                <input type="hidden" name="subject" value="Richiesta contatto dal sito" />
+                <input type="text" name="name" placeholder="Nome e cognome" required />
+                <input type="email" name="email" placeholder="Email" required />
+                <input type="tel" name="phone" placeholder="Telefono" />
+                <textarea name="message" placeholder="Messaggio" required></textarea>
+                <button class="button primary" type="submit">Invia richiesta</button>
+                <p class="form-hint" id="form-status">
+                  I messaggi vengono inoltrati a info@bortoneantincendio.it.
+                </p>
+              </form>
+            </div>
+            <div class="card reveal contact-map-card" data-delay="1">
+              <div class="map-embed">
+                <iframe
+                  title="Mappa Bortone Antincendio"
+                  src="https://www.google.com/maps?q=Via+Casilina+313A+00176+Roma&output=embed"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+              <div class="hero-actions map-actions">
+                <a
+                  class="button ghost"
+                  href="https://www.google.com/maps/search/?api=1&query=Via+Casilina+313A+00176+Roma"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Apri su Google Maps
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <div class="footer-brand">
+            <img
+              class="footer-logo"
+              src="assets/logo-bortone.png"
+              alt="Logo Bortone Antincendio"
+              width="646"
+              height="806"
+            />
+            <div>
+              <strong>Bortone Antincendio</strong>
+              <p class="footer-highlight">Via Casilina, 313A 00176 Roma</p>
+              <p class="footer-highlight">Tel. &amp; Fax 06 / 70.300.981</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <strong>Contatti</strong>
+          <p class="footer-highlight">info@bortoneantincendio.it</p>
+          <p class="footer-highlight">P.IVA 09780201001</p>
+        </div>
+      </div>
+      <div class="container footer-legal">
+        © 2026 Bortone Antincendio SRL | CF 09780201001 | REA 1189188
+        <br />
+        PEC amministrazione@pec.bortoneantincendio.it
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
