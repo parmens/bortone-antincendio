@@ -9,9 +9,8 @@
       content="Dal 1989 supporto tecnico antincendio per aziende e condomini a Roma, con processi documentati e referente unico."
     />
     <link rel="canonical" href="https://www.bortoneantincendio.it/chi-siamo.html" />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
-    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="assets/loghetto.png" />
+    <link rel="apple-touch-icon" href="assets/loghetto.png" />
     <link rel="manifest" href="manifest.json" />
     <meta name="theme-color" content="#0b0b0b" />
     <meta property="og:site_name" content="Bortone Antincendio" />
@@ -22,16 +21,22 @@
       content="Dal 1989 supporto tecnico antincendio per aziende e condomini a Roma, con processi documentati e referente unico."
     />
     <meta property="og:url" content="https://www.bortoneantincendio.it/chi-siamo.html" />
+    <meta property="og:locale" content="it_IT" />
     <meta
       property="og:image"
-      content="https://www.bortoneantincendio.it/assets/og-bortone-1200x630.png"
+      content="https://www.bortoneantincendio.it/assets/logo.png"
     />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Bortone Antincendio - Protezione antincendio a Roma" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Chi siamo | Bortone Antincendio" />
+    <meta name="twitter:description" content="Dal 1989 supporto tecnico antincendio per aziende e condomini a Roma, con processi documentati e referente unico." />
+    <meta name="twitter:image" content="https://www.bortoneantincendio.it/assets/logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Source+Sans+3:wght@400;600;700&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -40,14 +45,7 @@
     <header class="site-header">
       <div class="container header-inner">
         <a class="logo" href="index.html" aria-label="Bortone Antincendio">
-          <img
-            src="assets/logo-bortone.webp"
-            alt="Logo Bortone Antincendio"
-            width="646"
-            height="806"
-            decoding="async"
-          />
-          <span>Bortone Antincendio</span>
+          <img src="assets/logo-bortone.svg" alt="Logo Bortone Antincendio" width="646" height="806" />
         </a>
         <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Apri menu">
           Menu
@@ -57,72 +55,98 @@
           <a href="servizi.html">Servizi</a>
           <a class="active" href="chi-siamo.html">Chi siamo</a>
           <a href="contatti.html">Contatti</a>
+          <a href="area-clienti.html">Area Clienti</a>
         </nav>
-        <a class="button primary small" href="contatti.html">Richiedi un sopralluogo</a>
       </div>
     </header>
 
     <main>
       <section class="hero">
+        <div class="hero-stripe" aria-hidden="true"></div>
         <div class="container hero-grid">
-          <div>
-            <h1 class="reveal">Affidabilita tecnica e continuita operativa</h1>
-            <p class="reveal" data-delay="1">
+          <div class="hero-content">
+            <h1 class="reveal">Affidabilità tecnica e continuità operativa</h1>
+            <p class="reveal hero-lead" data-delay="1">
               Dal 1989 affianchiamo aziende e condomini con soluzioni antincendio integrate e
               supporto costante.
             </p>
             <div class="hero-actions reveal" data-delay="2">
-              <a class="button primary" href="contatti.html">Richiedi un incontro</a>
-              <a class="button ghost" href="servizi.html">Servizi e soluzioni</a>
+              <a class="button primary" href="contatti.html">Servizi e soluzioni</a>
             </div>
           </div>
           <div class="hero-card reveal" data-delay="3">
-            <ul>
-              <li>Team tecnico specializzato</li>
-              <li>Processi documentati e controlli</li>
-              <li>Referente unico per il cliente</li>
+            <ul class="hero-card-list">
+              <li>
+                <span class="hero-card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg>
+                </span>
+                <div>
+                  <strong>Team tecnico specializzato</strong>
+                  <p>Competenza e formazione continua.</p>
+                </div>
+              </li>
+              <li>
+                <span class="hero-card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9z" />
+                    <path d="M14 3v6h6" />
+                    <path d="M8.5 14.5l2 2 4-4" />
+                  </svg>
+                </span>
+                <div>
+                  <strong>Più di 35 anni di esperienza</strong>
+                  <p>Sul territorio romano dal 1989.</p>
+                </div>
+              </li>
+              <li>
+                <span class="hero-card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                </span>
+                <div>
+                  <strong>Serietà e flessibilità</strong>
+                  <p>Interventi mirati e tempestivi.</p>
+                </div>
+              </li>
             </ul>
           </div>
         </div>
       </section>
 
-      <section class="section">
+      <section class="section company-story">
         <div class="container">
           <div class="section-header">
-            <h2 class="reveal">Il nostro approccio</h2>
+            <h2 class="reveal">La nostra azienda</h2>
             <p class="reveal" data-delay="1">
-              Analisi del rischio, pianificazione e monitoraggio continuo.
+              Una storia costruita su esperienza diretta, competenza tecnica e responsabilità.
             </p>
           </div>
-          <div class="card-grid feature-grid">
-            <div class="card reveal">
-              <strong>Analisi iniziale</strong>
-              <p>
-                Sopralluogo tecnico, mappatura dei presidi e definizione delle priorita.
-              </p>
-            </div>
-            <div class="card reveal" data-delay="1">
-              <strong>Piano di manutenzione</strong>
-              <p>
-                Calendario di manutenzione, interventi correttivi e consulenza per adeguamenti.
-              </p>
-            </div>
-            <div class="card reveal" data-delay="2">
-              <strong>Gestione documentale</strong>
-              <p>
-                Report e registri sempre aggiornati, con un referente dedicato.
-              </p>
-            </div>
+          <div class="company-story-body reveal">
+            <p>
+              La Bortone Antincendio nasce dall’esperienza di
+              <strong class="story-emphasis">Alberto Bortone</strong>, che dopo quasi vent’anni di attività
+              nel settore della sicurezza antincendio decide di avviare una realtà propria.
+            </p>
+            <p>
+              Nel <strong class="story-emphasis">1989</strong> prende forma la <strong class="story-emphasis">Bortone Antincendio Srl</strong>,
+              con un obiettivo chiaro: offrire soluzioni affidabili, conformi e su misura
+              per aziende e professionisti. Ad oggi contiamo <strong class="story-emphasis">più di 2500 clienti</strong> affermandoci come una 
+              realtà consolidata su <strong class="story-emphasis">Roma</strong> e dintorni.
+            </p>
           </div>
         </div>
       </section>
 
       <section class="section">
         <div class="container">
+          <h3 class="chi-siamo-banner-title reveal">Esperienza dal 1989</h3>
           <div class="banner reveal chi-siamo-banner">
-            <h3>Esperienza dal 1989</h3>
             <div class="hero-actions">
-              <a class="button primary" href="contatti.html">Richiedi un incontro</a>
+              <a class="button ghost" href="contatti.html">Richiedi un sopralluogo</a>
               <a class="button ghost" href="index.html">Torna alla home</a>
             </div>
           </div>
@@ -136,12 +160,10 @@
           <div class="footer-brand">
             <img
               class="footer-logo"
-              src="assets/logo-bortone.webp"
+              src="assets/loghetto-black.svg"
               alt="Logo Bortone Antincendio"
               width="646"
               height="806"
-              loading="lazy"
-              decoding="async"
             />
             <div>
               <strong>Bortone Antincendio</strong>
@@ -157,12 +179,14 @@
         </div>
       </div>
       <div class="container footer-legal">
+        <a href="privacy.html">Privacy</a>
+        <br />
         © 2026 Bortone Antincendio SRL | CF 09780201001 | REA 1189188
         <br />
         PEC amministrazione@pec.bortoneantincendio.it
       </div>
     </footer>
 
-    <script src="script.js" defer></script>
+    <script src="script.js"></script>
   </body>
 </html>

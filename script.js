@@ -1,59 +1,62 @@
-const navToggle = document.querySelector(".nav-toggle");
-const nav = document.querySelector(".site-nav");
-
-if (navToggle && nav) {
-  const closeNav = () => {
-    nav.classList.remove("open");
-    navToggle.setAttribute("aria-expanded", "false");
-  };
-
-  navToggle.addEventListener("click", () => {
-    const isOpen = nav.classList.toggle("open");
-    navToggle.setAttribute("aria-expanded", String(isOpen));
-  });
-
-  nav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", closeNav);
-  });
-
-  document.addEventListener("click", (event) => {
-    if (event.target instanceof Node && !nav.contains(event.target) && !navToggle.contains(event.target)) {
-      closeNav();
+(function() {
+  function setupMenu() {
+    var navToggle = document.querySelector(".nav-toggle");
+    var nav = document.getElementById("site-nav");
+    if (!navToggle || !nav) {
+      setTimeout(setupMenu, 100);
+      return;
     }
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      closeNav();
+    function toggle() {
+      nav.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", nav.classList.contains("open"));
     }
-  });
-}
+    navToggle.onclick = function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggle();
+    };
+    nav.querySelectorAll("a").forEach(function(a) {
+      a.onclick = function() {
+        nav.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      };
+    });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setupMenu);
+  } else {
+    setupMenu();
+  }
 
-const contactForm = document.querySelector("#contact-form");
-const formStatus = document.querySelector("#form-status");
+  var contactForm = document.getElementById("contact-form");
+  var formStatus = document.getElementById("form-status");
 
-if (contactForm && formStatus) {
-  contactForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
+  if (!contactForm || !formStatus) return;
+
+  contactForm.addEventListener("submit", function(e) {
+    e.preventDefault();
     formStatus.textContent = "Invio in corso...";
 
-    try {
-      const response = await fetch(contactForm.action, {
-        method: "POST",
-        body: new FormData(contactForm),
-        headers: {
-          Accept: "application/json",
-        },
-      });
-
-      if (response.ok) {
-        contactForm.reset();
-        formStatus.textContent = "Grazie! La tua richiesta e stata inviata.";
-      } else {
-        formStatus.textContent = "Invio non riuscito. Riprova o scrivici via email.";
-      }
-    } catch (error) {
-      formStatus.textContent = "Errore di connessione. Riprova tra poco.";
+    if (!window.fetch || !window.FormData) {
+      formStatus.textContent = "Browser non supportato. Contattaci via email o telefono.";
+      return;
     }
+
+    fetch(contactForm.action, {
+      method: "POST",
+      body: new FormData(contactForm),
+      headers: { Accept: "application/json" }
+    })
+      .then(function(res) {
+        if (res.ok) {
+          formStatus.textContent = "Grazie! La tua richiesta è stata inviata.";
+          contactForm.reset();
+        } else {
+          formStatus.textContent = "Invio non riuscito. Riprova o scrivici via email.";
+        }
+      })
+      .catch(function() {
+        formStatus.textContent = "Errore di connessione. Riprova tra poco.";
+      });
   });
-}
+})();

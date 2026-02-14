@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Area Clienti | Bortone Antincendio</title>
+    <meta
+      name="description"
+      content="Portale clienti Bortone Antincendio: consulta impianti, interventi, documenti e richiedi assistenza."
+    />
+    <link rel="canonical" href="https://www.bortoneantincendio.it/area-clienti.html" />
+    <link rel="icon" type="image/png" href="assets/loghetto.png" />
+    <link rel="apple-touch-icon" href="assets/loghetto.png" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#0b0b0b" />
+    <meta property="og:site_name" content="Bortone Antincendio" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Area Clienti | Bortone Antincendio" />
+    <meta
+      property="og:description"
+      content="Portale clienti Bortone Antincendio: consulta impianti, interventi, documenti e richiedi assistenza."
+    />
+    <meta property="og:url" content="https://www.bortoneantincendio.it/area-clienti.html" />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:image" content="https://www.bortoneantincendio.it/assets/logo.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Bortone Antincendio - Protezione antincendio a Roma" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Area Clienti | Bortone Antincendio" />
+    <meta name="twitter:description" content="Portale clienti Bortone Antincendio: consulta impianti, interventi, documenti e richiedi assistenza." />
+    <meta name="twitter:image" content="https://www.bortoneantincendio.it/assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html" aria-label="Bortone Antincendio">
+          <img src="assets/logo-bortone.svg" alt="Logo Bortone Antincendio" width="646" height="806" />
+        </a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Apri menu">
+          Menu
+        </button>
+        <nav class="site-nav" id="site-nav">
+          <a href="index.html">Home</a>
+          <a href="servizi.html">Servizi</a>
+          <a href="chi-siamo.html">Chi siamo</a>
+          <a href="contatti.html">Contatti</a>
+          <a class="active" href="area-clienti.html">Area Clienti</a>
+        </nav>
+      </div>
+    </header>
+
+
+    <main>
+      <section class="hero area-clienti-hero">
+        <div class="hero-stripe" aria-hidden="true"></div>
+        <div class="container">
+          <div class="area-clienti-hero-inner">
+            <h1 class="reveal">Area Clienti</h1>
+            <p class="reveal area-clienti-lead" data-delay="1">
+              Accedi al portale dedicato per consultare impianti, interventi e documentazione.
+            </p>
+            <div class="area-clienti-cta reveal">
+              <div class="area-clienti-cta-box">
+                <h3>Hai già le credenziali?</h3>
+                <a href="https://app.taylorweb.it/login.php" class="button primary" target="_blank" rel="noopener noreferrer">Accedi</a>
+              </div>
+              <div class="area-clienti-cta-box">
+                <h3>Non sei registrato?</h3>
+                <a href="https://app.taylorweb.it/login.php" class="button home-services-cta" id="open-access-popup" target="_blank" rel="noopener noreferrer">Richiedi accesso</a>
+              </div>
+            </div>
+
+            <!-- Popup Accesso Clienti globale -->
+              <div id="access-popup-overlay" class="access-popup-overlay" style="display:none;">
+                <div class="access-popup-modal">
+                  <button class="access-popup-close" id="close-access-popup" title="Chiudi" type="button">&times;</button>
+                  <div class="access-popup-menu">
+                    <span class="access-popup-menu-item active" data-type="azienda">Azienda/Privato</span>
+                    <span class="access-popup-menu-item" data-type="admin">Amministratore</span>
+                  </div>
+                  <form id="access-popup-form" class="access-popup-form" action="https://formspree.io/f/mykdylqn" method="post" style="display:block;">
+                    <input type="hidden" name="subject" value="Richiesta accesso area clienti" />
+                    <input type="text" id="access-popup-nome" name="name" placeholder="Nome azienda / Nome e cognome" required autocomplete="off" />
+                    <input type="email" name="email" placeholder="Email" required autocomplete="off" />
+                    <input type="tel" name="phone" placeholder="Numero di telefono" autocomplete="off" />
+                    <div class="access-popup-submit-wrap">
+                      <button type="submit" class="access-popup-submit">Invia richiesta</button>
+                    </div>
+                    <div style="text-align:center; margin-top:10px; color:#111; font-size:0.98em; font-family:'Source Sans 3',sans-serif;">
+                      riceverai una mail con le tue credenziali di accesso
+                    </div>
+                    <p class="form-hint" id="access-popup-status"></p>
+                  </form>
+                </div>
+
+                <script>
+                // Gestione invio form popup con feedback come il form contatti
+                document.addEventListener('DOMContentLoaded', function() {
+                  const popupForm = document.getElementById('access-popup-form');
+                  const popupStatus = document.getElementById('access-popup-status');
+                  if (popupForm && popupStatus) {
+                    popupForm.addEventListener('submit', function(e) {
+                      e.preventDefault();
+                      popupStatus.textContent = 'Invio in corso...';
+                      if (!window.fetch || !window.FormData) {
+                        popupStatus.textContent = 'Browser non supportato. Contattaci via email o telefono.';
+                        return;
+                      }
+                      fetch(popupForm.action, {
+                        method: 'POST',
+                        body: new FormData(popupForm),
+                        headers: { Accept: 'application/json' }
+                      })
+                        .then(function(res) {
+                          if (res.ok) {
+                            popupStatus.textContent = 'Grazie! La tua richiesta è stata inviata.';
+                            popupForm.reset();
+                          } else {
+                            popupStatus.textContent = 'Invio non riuscito. Riprova o scrivici via email.';
+                          }
+                        })
+                        .catch(function() {
+                          popupStatus.textContent = 'Errore di connessione. Riprova tra poco.';
+                        });
+                    });
+                  }
+                });
+                </script>
+                </div>
+              </div>
+
+              <script>
+              document.addEventListener('DOMContentLoaded', function() {
+                const openBtn = document.getElementById('open-access-popup');
+                const overlay = document.getElementById('access-popup-overlay');
+                const closeBtn = document.getElementById('close-access-popup');
+                const form = document.getElementById('access-popup-form');
+                const nomeInput = document.getElementById('access-popup-nome');
+                const menuItems = document.querySelectorAll('.access-popup-menu-item');
+                let selected = 'azienda';
+                function openPopup() {
+                  overlay.style.display = 'flex';
+                  setTimeout(() => { overlay.classList.add('active'); }, 10);
+                  document.body.style.overflow = 'hidden';
+                  // default su azienda/privato
+                  selected = 'azienda';
+                  menuItems.forEach(i => i.classList.remove('active'));
+                  menuItems[0].classList.add('active');
+                  nomeInput.placeholder = 'Nome azienda / Nome e cognome';
+                }
+                function closePopup() {
+                  overlay.classList.remove('active');
+                  setTimeout(() => { overlay.style.display = 'none'; }, 180);
+                  document.body.style.overflow = '';
+                }
+                if(openBtn) openBtn.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  openPopup();
+                });
+                if(closeBtn) closeBtn.addEventListener('click', function() {
+                  closePopup();
+                });
+                menuItems.forEach(item => {
+                  item.addEventListener('click', function() {
+                    menuItems.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+                    selected = this.getAttribute('data-type');
+                    if(selected === 'admin') {
+                      nomeInput.placeholder = 'Nome e cognome';
+                    } else {
+                      nomeInput.placeholder = 'Nome azienda / Nome e cognome';
+                    }
+                  });
+                });
+                overlay.addEventListener('click', function(e) {
+                  if(e.target === overlay) closePopup();
+                });
+                document.addEventListener('keydown', function(e) {
+                  if(overlay.style.display === 'flex' && (e.key === 'Escape' || e.keyCode === 27)) closePopup();
+                });
+              });
+              </script>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section company-story area-clienti-section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="reveal">Il nostro portale</h2>
+            <p class="reveal" data-delay="1">
+              <strong>Se siete già nostri clienti e desiderate conoscere lo stato di manutenzione dei vostri impianti e attrezzature, vi offriamo la possibilità di farlo tramite il nostro portale dedicato.</strong>
+            </p>
+          </div>
+          <div class="company-story-body reveal">
+            <p>
+              Il nostro portale è stato creato appositamente per gestire il lavoro in modo facile, organizzato e personalizzabile. Attraverso di esso potrete usufruire delle seguenti funzioni:
+            </p>
+          </div>
+
+          <ul class="area-clienti-features reveal">
+            <li>
+              <strong>Impianti</strong> — L'elenco dei tuoi impianti con i relativi dati e componenti, per i quali è attivo un contratto di manutenzione.
+            </li>
+            <li>
+              <strong>Interventi</strong> — Tutti gli interventi effettuati dai nostri manutentori, con data, ora e costo di ogni manutenzione.
+            </li>
+            <li>
+              <strong>Documenti</strong> — Documenti relativi al tuo contratto di manutenzione (fatture, ordini, ecc.) consultabili e scaricabili.
+            </li>
+            <li>
+              <strong>Chiamate</strong> — Richiesta di interventi straordinari tramite richieste di assistenza.
+            </li>
+            <li>
+              <strong>Estratto conto</strong> — Riepilogo di tutte le operazioni effettuate con i relativi costi.
+            </li>
+          </ul>
+
+          <!-- area-clienti-cta spostata sopra, subito sotto il titolo -->
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <div class="footer-brand">
+            <img class="footer-logo" src="assets/loghetto-black.svg" alt="Logo Bortone Antincendio" width="646" height="806" />
+            <div>
+              <strong>Bortone Antincendio</strong>
+              <p class="footer-highlight">Via Casilina, 313A 00176 Roma</p>
+              <p class="footer-highlight">Tel. &amp; Fax 06 / 70.300.981</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <strong>Contatti</strong>
+          <p class="footer-highlight">info@bortoneantincendio.it</p>
+          <p class="footer-highlight">P.IVA 09780201001</p>
+        </div>
+      </div>
+      <div class="container footer-legal">
+        <a href="privacy.html">Privacy</a>
+        <br />
+        © 2026 Bortone Antincendio SRL | CF 09780201001 | REA 1189188
+        <br />
+        PEC amministrazione@pec.bortoneantincendio.it
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
