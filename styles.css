@@ -49,6 +49,13 @@
 .access-popup-close:hover {
   color: var(--accent-amber);
 }
+.access-popup-title {
+  margin: 0 0 12px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  color: var(--black);
+}
 .access-popup-menu {
   display: flex;
   gap: 18px;
@@ -142,6 +149,21 @@
 * {
   box-sizing: border-box;
 }
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 9999;
+  padding: 0.75rem 1rem;
+  background: var(--accent);
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 0 0 8px 0;
+}
+.skip-link:focus {
+  left: 0;
+}
 body {
   margin: 0;
   font-family: "Source Sans 3", sans-serif;
@@ -159,7 +181,7 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-  cursor: default;
+  cursor: pointer;
 }
 img {
   max-width: 100%;
@@ -454,6 +476,7 @@ img {
 .map-embed iframe { width: 100%; height: 100%; min-height: 200px; border: 0; display: block; }
 .contact-form-card .form-grid { gap: 14px; }
 .contact-form-card .form-hint { text-align: center; }
+.form-honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .hero-eyebrow {
   margin: 0 0 10px;
   font-size: 0.85rem;
@@ -471,9 +494,10 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  cursor: default;
+  cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
+button { cursor: pointer; }
 .button.small { padding: 6px 12px; font-size: 0.8rem; border-radius: 6px; }
 .button.primary {
   background: var(--accent);
@@ -749,8 +773,8 @@ img {
 .contact-map-card { display: flex; flex-direction: column; height: 100%; min-height: 0; padding: 24px; }
 .contact-form-card .form-grid { display: flex; flex-direction: column; flex: 1; min-height: 0; gap: 14px; }
 .contact-form-card .form-grid textarea { flex: 1; min-height: 80px; resize: vertical; }
-contact-form-card .form-grid .form-hint { margin: 0; font-size: 0.9rem; color: var(--muted); flex-shrink: 0; }
-form-hint { font-size: 0.9rem; color: var(--muted); }
+.contact-form-card .form-grid .form-hint { margin: 0; font-size: 0.9rem; color: var(--muted); flex-shrink: 0; }
+.form-hint { font-size: 0.9rem; color: var(--muted); }
 .contact-map-card .map-actions { display: flex; flex-direction: column; align-items: center; margin-top: auto; padding-top: 2px; flex-shrink: 0; }
 .contact-map-card .map-actions .contact-map-hint { font-size: 0.9rem; color: var(--muted); text-align: center; margin: 0 0 2px; width: 100%; }
 .contact-map-card .map-embed { flex: 1; min-height: 0; height: 100%; border-radius: 14px; overflow: hidden; border: 1px solid var(--stroke); }
@@ -961,7 +985,6 @@ form-hint { font-size: 0.9rem; color: var(--muted); }
   gap: 24px;
   margin-top: 44px;
   padding-top: 36px;
-  border-top: 1px solid rgba(122, 7, 5, 0.2);
 }
 .area-clienti-cta-box {
   background: var(--white);

@@ -9,10 +9,13 @@
       content="Richiedi un sopralluogo tecnico: contatti telefonici, email e modulo per assistenza antincendio a Roma."
     />
     <link rel="canonical" href="https://www.bortoneantincendio.it/contatti.html" />
-    <link rel="icon" type="image/png" href="assets/loghetto.png?v=2" />
-    <link rel="apple-touch-icon" href="assets/loghetto.png?v=2" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/loghetto.png?v=3" />
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/loghetto.png?v=3" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/loghetto.png?v=3" />
     <link rel="manifest" href="manifest.json" />
     <meta name="theme-color" content="#0b0b0b" />
+    <meta name="color-scheme" content="light" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta property="og:site_name" content="Bortone Antincendio" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Contatti | Bortone Antincendio" />
@@ -33,6 +36,23 @@
     <meta name="twitter:title" content="Contatti | Bortone Antincendio" />
     <meta name="twitter:description" content="Richiedi un sopralluogo tecnico: contatti telefonici, email e modulo per assistenza antincendio a Roma." />
     <meta name="twitter:image" content="https://www.bortoneantincendio.it/assets/logo.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Bortone Antincendio",
+        "url": "https://www.bortoneantincendio.it/",
+        "logo": "https://www.bortoneantincendio.it/assets/logo-bortone.svg",
+        "description": "Manutenzione e gestione impianti antincendio a Roma per aziende e condomini.",
+        "telephone": "+390670300981",
+        "email": "info@bortoneantincendio.it",
+        "address": { "@type": "PostalAddress", "streetAddress": "Via Casilina, 313A", "postalCode": "00176", "addressLocality": "Roma", "addressCountry": "IT" },
+        "openingHours": "Mo-Fr 08:00-13:00,14:30-17:00",
+        "geo": { "@type": "GeoCoordinates", "latitude": 41.8828, "longitude": 12.5342 },
+        "hasMap": "https://www.google.com/maps/search/?api=1&query=Via+Casilina+313A+00176+Roma",
+        "areaServed": "Roma"
+      }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -42,6 +62,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <a href="#main" class="skip-link">Salta al contenuto</a>
     <header class="site-header">
       <div class="container header-inner">
         <a class="logo" href="index.html" aria-label="Bortone Antincendio">
@@ -57,13 +78,13 @@
           <a class="active" href="contatti.html">Contatti</a>
           <a href="area-clienti.html">Area Clienti</a>
         </nav>
-        <a href="https://wa.me/390670300981" target="_blank" rel="noopener" class="header-icon-link" aria-label="Scrivici su WhatsApp">
+        <a href="https://wa.me/393206472865" target="_blank" rel="noopener" class="header-icon-link" aria-label="Scrivici su WhatsApp">
           <img src="assets/icons8-whatsapp-64.png" class="header-icon" alt="" width="28" height="28">
         </a>
       </div>
     </header>
 
-    <main>
+    <main id="main">
       <section class="hero contact-hero">
         <div class="container">
           <div class="contact-hero-inner">
@@ -139,6 +160,10 @@
             <div class="card reveal contact-form-card">
               <form id="contact-form" class="form-grid" action="https://formspree.io/f/mykdylqn" method="post">
                 <input type="hidden" name="subject" value="Richiesta contatto dal sito" />
+                <div class="form-honeypot" aria-hidden="true">
+                  <label for="website">Non compilare</label>
+                  <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+                </div>
                 <input type="text" name="name" placeholder="Nome e cognome" required />
                 <input type="email" name="email" placeholder="Email" required />
                 <input type="tel" name="phone" placeholder="Telefono" />
@@ -146,7 +171,7 @@
                 <p class="form-hint" id="form-status">
                   I messaggi vengono inoltrati a info@bortoneantincendio.it.
                 </p>
-                <button class="button primary contact-cta-btn" type="submit">Invia richiesta</button>
+                <button class="button primary contact-cta-btn" type="submit" id="contact-submit">Invia richiesta</button>
               </form>
             </div>
             <div class="card reveal contact-map-card" data-delay="1">
@@ -189,14 +214,14 @@
             <div>
               <strong>Bortone Antincendio</strong>
               <p class="footer-highlight">Via Casilina, 313A 00176 Roma</p>
-              <p class="footer-highlight">Tel. 06 / 70.300.981</p>
+              <p class="footer-highlight">P.IVA 09780201001</p>
             </div>
           </div>
         </div>
         <div>
           <strong>Contatti</strong>
           <p class="footer-highlight">info@bortoneantincendio.it</p>
-          <p class="footer-highlight">P.IVA 09780201001</p>
+          <p class="footer-highlight">Tel. 06 / 70.300.981</p>
         </div>
       </div>
       <div class="container footer-legal">

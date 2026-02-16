@@ -9,10 +9,13 @@
       content="Portale clienti Bortone Antincendio: consulta impianti, interventi, documenti e richiedi assistenza."
     />
     <link rel="canonical" href="https://www.bortoneantincendio.it/area-clienti.html" />
-    <link rel="icon" type="image/png" href="assets/loghetto.png?v=2" />
-    <link rel="apple-touch-icon" href="assets/loghetto.png?v=2" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/loghetto.png?v=3" />
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/loghetto.png?v=3" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/loghetto.png?v=3" />
     <link rel="manifest" href="manifest.json" />
     <meta name="theme-color" content="#0b0b0b" />
+    <meta name="color-scheme" content="light" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta property="og:site_name" content="Bortone Antincendio" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Area Clienti | Bortone Antincendio" />
@@ -39,6 +42,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <a href="#main" class="skip-link">Salta al contenuto</a>
     <header class="site-header">
       <div class="container header-inner">
         <a class="logo" href="index.html" aria-label="Bortone Antincendio">
@@ -54,14 +58,14 @@
           <a href="contatti.html">Contatti</a>
           <a class="active" href="area-clienti.html">Area Clienti</a>
         </nav>
-        <a href="https://wa.me/390670300981" target="_blank" rel="noopener" class="header-icon-link" aria-label="Scrivici su WhatsApp">
+        <a href="https://wa.me/393206472865" target="_blank" rel="noopener" class="header-icon-link" aria-label="Scrivici su WhatsApp">
           <img src="assets/icons8-whatsapp-64.png" class="header-icon" alt="" width="28" height="28">
         </a>
       </div>
     </header>
 
 
-    <main>
+    <main id="main">
       <section class="hero area-clienti-hero">
         <div class="hero-stripe" aria-hidden="true"></div>
         <div class="container">
@@ -77,25 +81,30 @@
               </div>
               <div class="area-clienti-cta-box">
                 <h3>Non sei registrato?</h3>
-                <a href="https://app.taylorweb.it/login.php" class="button home-services-cta" id="open-access-popup" target="_blank" rel="noopener noreferrer">Richiedi accesso</a>
+                <a href="#" class="button home-services-cta" id="open-access-popup">Richiedi accesso</a>
               </div>
             </div>
 
             <!-- Popup Accesso Clienti globale -->
-              <div id="access-popup-overlay" class="access-popup-overlay" style="display:none;">
-                <div class="access-popup-modal">
+              <div id="access-popup-overlay" class="access-popup-overlay" style="display:none;" aria-hidden="true">
+                <div class="access-popup-modal" role="dialog" aria-modal="true" aria-labelledby="access-popup-title">
                   <button class="access-popup-close" id="close-access-popup" title="Chiudi" type="button">&times;</button>
+                  <h2 id="access-popup-title" class="access-popup-title">Richiedi accesso</h2>
                   <div class="access-popup-menu">
                     <span class="access-popup-menu-item active" data-type="azienda">Azienda/Privato</span>
                     <span class="access-popup-menu-item" data-type="admin">Amministratore</span>
                   </div>
                   <form id="access-popup-form" class="access-popup-form" action="https://formspree.io/f/mykdylqn" method="post" style="display:block;">
                     <input type="hidden" name="subject" value="Richiesta accesso area clienti" />
+                    <div class="form-honeypot" aria-hidden="true">
+                      <label for="access-popup-website">Non compilare</label>
+                      <input type="text" id="access-popup-website" name="website" tabindex="-1" autocomplete="off" />
+                    </div>
                     <input type="text" id="access-popup-nome" name="name" placeholder="Nome azienda / Nome e cognome" required autocomplete="off" />
                     <input type="email" name="email" placeholder="Email" required autocomplete="off" />
                     <input type="tel" name="phone" placeholder="Numero di telefono" autocomplete="off" />
                     <div class="access-popup-submit-wrap">
-                      <button type="submit" class="access-popup-submit">Invia richiesta</button>
+                      <button type="submit" class="access-popup-submit" id="access-popup-submit-btn">Invia richiesta</button>
                     </div>
                     <div style="text-align:center; margin-top:10px; color:#111; font-size:0.98em; font-family:'Source Sans 3',sans-serif;">
                       riceverai una mail con le tue credenziali di accesso
@@ -103,94 +112,6 @@
                     <p class="form-hint" id="access-popup-status"></p>
                   </form>
                 </div>
-
-                <script>
-                // Gestione invio form popup con feedback come il form contatti
-                document.addEventListener('DOMContentLoaded', function() {
-                  const popupForm = document.getElementById('access-popup-form');
-                  const popupStatus = document.getElementById('access-popup-status');
-                  if (popupForm && popupStatus) {
-                    popupForm.addEventListener('submit', function(e) {
-                      e.preventDefault();
-                      popupStatus.textContent = 'Invio in corso...';
-                      if (!window.fetch || !window.FormData) {
-                        popupStatus.textContent = 'Browser non supportato. Contattaci via email o telefono.';
-                        return;
-                      }
-                      fetch(popupForm.action, {
-                        method: 'POST',
-                        body: new FormData(popupForm),
-                        headers: { Accept: 'application/json' }
-                      })
-                        .then(function(res) {
-                          if (res.ok) {
-                            popupStatus.textContent = 'Grazie! La tua richiesta è stata inviata.';
-                            popupForm.reset();
-                          } else {
-                            popupStatus.textContent = 'Invio non riuscito. Riprova o scrivici via email.';
-                          }
-                        })
-                        .catch(function() {
-                          popupStatus.textContent = 'Errore di connessione. Riprova tra poco.';
-                        });
-                    });
-                  }
-                });
-                </script>
-                </div>
-              </div>
-
-              <script>
-              document.addEventListener('DOMContentLoaded', function() {
-                const openBtn = document.getElementById('open-access-popup');
-                const overlay = document.getElementById('access-popup-overlay');
-                const closeBtn = document.getElementById('close-access-popup');
-                const form = document.getElementById('access-popup-form');
-                const nomeInput = document.getElementById('access-popup-nome');
-                const menuItems = document.querySelectorAll('.access-popup-menu-item');
-                let selected = 'azienda';
-                function openPopup() {
-                  overlay.style.display = 'flex';
-                  setTimeout(() => { overlay.classList.add('active'); }, 10);
-                  document.body.style.overflow = 'hidden';
-                  // default su azienda/privato
-                  selected = 'azienda';
-                  menuItems.forEach(i => i.classList.remove('active'));
-                  menuItems[0].classList.add('active');
-                  nomeInput.placeholder = 'Nome azienda / Nome e cognome';
-                }
-                function closePopup() {
-                  overlay.classList.remove('active');
-                  setTimeout(() => { overlay.style.display = 'none'; }, 180);
-                  document.body.style.overflow = '';
-                }
-                if(openBtn) openBtn.addEventListener('click', function(e) {
-                  e.preventDefault();
-                  openPopup();
-                });
-                if(closeBtn) closeBtn.addEventListener('click', function() {
-                  closePopup();
-                });
-                menuItems.forEach(item => {
-                  item.addEventListener('click', function() {
-                    menuItems.forEach(i => i.classList.remove('active'));
-                    this.classList.add('active');
-                    selected = this.getAttribute('data-type');
-                    if(selected === 'admin') {
-                      nomeInput.placeholder = 'Nome e cognome';
-                    } else {
-                      nomeInput.placeholder = 'Nome azienda / Nome e cognome';
-                    }
-                  });
-                });
-                overlay.addEventListener('click', function(e) {
-                  if(e.target === overlay) closePopup();
-                });
-                document.addEventListener('keydown', function(e) {
-                  if(overlay.style.display === 'flex' && (e.key === 'Escape' || e.keyCode === 27)) closePopup();
-                });
-              });
-              </script>
               </div>
             </div>
           </div>
@@ -242,14 +163,14 @@
             <div>
               <strong>Bortone Antincendio</strong>
               <p class="footer-highlight">Via Casilina, 313A 00176 Roma</p>
-              <p class="footer-highlight">Tel. 06 / 70.300.981</p>
+              <p class="footer-highlight">P.IVA 09780201001</p>
             </div>
           </div>
         </div>
         <div>
           <strong>Contatti</strong>
           <p class="footer-highlight">info@bortoneantincendio.it</p>
-          <p class="footer-highlight">P.IVA 09780201001</p>
+          <p class="footer-highlight">Tel. 06 / 70.300.981</p>
         </div>
       </div>
       <div class="container footer-legal">
