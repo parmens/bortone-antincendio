@@ -1438,6 +1438,7 @@ img {
   object-fit: contain;
 }
 .prodotti-hero .hero-grid { position: relative; z-index: 2; }
+.prodotti-hero .hero-lead-mobile { display: none; }
 .prodotti-section { padding: 60px 0; }
 .prodotti-tabs {
   display: flex;
@@ -1475,6 +1476,8 @@ img {
     max-width: 60vw;
     height: 100%;
   }
+  .prodotti-hero .hero-lead-desktop { display: none; }
+  .prodotti-hero .hero-lead-mobile { display: inline; }
   .prodotti-tabs {
     gap: 24px;
     margin-bottom: 32px;
