@@ -212,4 +212,21 @@
       });
     }
   }
+
+  // Tab prodotti
+  var prodottiTabs = document.querySelectorAll(".prodotti-tab");
+  if (prodottiTabs.length > 0) {
+    prodottiTabs.forEach(function(tab) {
+      tab.addEventListener("click", function() {
+        var categoria = this.getAttribute("data-categoria");
+        prodottiTabs.forEach(function(t) { t.classList.remove("active"); });
+        this.classList.add("active");
+        document.querySelectorAll(".categoria-prodotti").forEach(function(cat) {
+          cat.style.display = "none";
+        });
+        var targetCat = document.getElementById("categoria-" + categoria);
+        if (targetCat) targetCat.style.display = "block";
+      });
+    });
+  }
 })();
