@@ -70,6 +70,9 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
   </head>
   <body>
     <a href="#main" class="skip-link">Salta al contenuto</a>
@@ -106,7 +109,7 @@
               supporto costante.
             </p>
             <div class="hero-actions reveal" data-delay="2">
-              <a class="button primary" href="contatti.html">Servizi e soluzioni</a>
+              <a class="button primary" href="servizi.html">Servizi e soluzioni</a>
             </div>
           </div>
           <div class="hero-card reveal" data-delay="3">
@@ -176,12 +179,30 @@
         </div>
       </section>
 
+      <section class="section clienti-map-section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="reveal">I nostri clienti su Roma</h2>
+            <p class="reveal" data-delay="1">
+              Oltre 2.300 tra aziende e condomini serviti sul territorio.
+            </p>
+          </div>
+          <div class="clienti-map-wrap reveal" data-delay="2">
+            <div id="clienti-map"></div>
+            <div class="clienti-map-legend">
+              <span class="legend-dot legend-dot--cond"></span> Condomini
+              <span class="legend-dot legend-dot--priv"></span> Privati / Aziende
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="section">
         <div class="container">
           <h3 class="chi-siamo-banner-title reveal">Esperienza dal 1989</h3>
           <div class="banner reveal chi-siamo-banner">
             <div class="hero-actions">
-              <a class="button ghost" href="contatti.html">Richiedi un sopralluogo</a>
+              <a class="button ghost" href="servizi.html#preventivo">Richiedi un preventivo</a>
               <a class="button ghost" href="index.html">Torna alla home</a>
             </div>
           </div>
@@ -223,5 +244,65 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+    <script src="clienti-mappa.js"></script>
+    <script>
+    (function(){
+      var mapEl = document.getElementById("clienti-map");
+      if (!mapEl || typeof CLIENTI_DATA === "undefined") return;
+
+      var map = L.map("clienti-map", {
+        center: [41.9028, 12.4964],
+        zoom: 9,
+        scrollWheelZoom: true,
+        dragging: true,
+        touchZoom: true,
+        doubleClickZoom: true,
+        attributionControl: false
+      });
+
+      L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+        maxZoom: 18
+      }).addTo(map);
+
+      var clusters = L.markerClusterGroup({
+        maxClusterRadius: 40,
+        disableClusteringAtZoom: 14,
+        spiderfyOnMaxZoom: false,
+        showCoverageOnHover: false,
+        zoomToBoundsOnClick: true,
+        iconCreateFunction: function(cluster) {
+          var markers = cluster.getAllChildMarkers();
+          var total = markers.length;
+          var cond = 0;
+          for (var i = 0; i < markers.length; i++) {
+            if (markers[i].options.tipo === "condominio") cond++;
+          }
+          var pctCond = Math.round((cond / total) * 100);
+          var size = total > 100 ? "lg" : total > 30 ? "md" : "sm";
+          var sizes = {sm: 42, md: 52, lg: 64};
+          var bg = "conic-gradient(#c41e1a 0% " + pctCond + "%, #d97706 " + pctCond + "% 100%)";
+          return L.divIcon({
+            html: '<div class="cluster-ring" style="background:' + bg + '"><div class="cluster-core cluster-' + size + '">' + total + '</div></div>',
+            className: "custom-cluster",
+            iconSize: L.point(sizes[size], sizes[size])
+          });
+        }
+      });
+
+      var iconCond = L.divIcon({className: "marker-dot marker-cond", iconSize: [12, 12]});
+      var iconPriv = L.divIcon({className: "marker-dot marker-priv", iconSize: [12, 12]});
+
+      CLIENTI_DATA.forEach(function(p){
+        var icon = p.tipo === "condominio" ? iconCond : iconPriv;
+        var m = L.marker([p.lat, p.lng], {icon: icon, tipo: p.tipo});
+        clusters.addLayer(m);
+      });
+
+      map.addLayer(clusters);
+
+    })();
+    </script>
   </body>
 </html>
