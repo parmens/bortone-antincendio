@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Area Clienti - Portale assistenza | Bortone Antincendio</title>
+    <title>Area Clienti - Portale impianti antincendio | Bortone Antincendio Roma</title>
     <meta
       name="description"
-      content="Portale clienti Bortone Antincendio: consulta impianti, interventi, documenti e richiedi assistenza."
+      content="Portale clienti Bortone Antincendio: consulta impianti, interventi, documenti e richiedi assistenza. Accesso riservato e richiesta credenziali online."
     />
     <link rel="canonical" href="https://www.bortoneantincendio.it/area-clienti.html" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/loghetto.png?v=3" />
@@ -16,53 +16,59 @@
     <meta name="theme-color" content="#0b0b0b" />
     <meta name="color-scheme" content="light" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="format-detection" content="telephone=yes" />
+    <meta name="geo.region" content="IT-RM" />
+    <meta name="geo.placename" content="Roma" />
     <meta property="og:site_name" content="Bortone Antincendio" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Area Clienti - Portale assistenza | Bortone Antincendio" />
+    <meta property="og:title" content="Area Clienti - Portale impianti antincendio | Bortone Antincendio Roma" />
     <meta
       property="og:description"
       content="Portale clienti Bortone Antincendio: consulta impianti, interventi, documenti e richiedi assistenza."
     />
     <meta property="og:url" content="https://www.bortoneantincendio.it/area-clienti.html" />
     <meta property="og:locale" content="it_IT" />
-    <meta property="og:image" content="https://www.bortoneantincendio.it/assets/logo.png" />
+    <meta property="og:image" content="https://www.bortoneantincendio.it/assets/loggo.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Bortone Antincendio - Protezione antincendio a Roma" />
+    <meta property="og:image:alt" content="Bortone Antincendio - Area Clienti" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Area Clienti - Portale assistenza | Bortone Antincendio" />
+    <meta name="twitter:title" content="Area Clienti - Portale impianti antincendio | Bortone Antincendio Roma" />
     <meta name="twitter:description" content="Portale clienti Bortone Antincendio: consulta impianti, interventi, documenti e richiedi assistenza." />
-    <meta name="twitter:image" content="https://www.bortoneantincendio.it/assets/logo.png" />
+    <meta name="twitter:image" content="https://www.bortoneantincendio.it/assets/loggo.png" />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
+      "@type": "FireProtectionService",
+      "@id": "https://www.bortoneantincendio.it/#organization",
       "name": "Bortone Antincendio",
       "url": "https://www.bortoneantincendio.it/",
       "logo": "https://www.bortoneantincendio.it/assets/logo-bortone.svg",
+      "image": "https://www.bortoneantincendio.it/assets/loggo.png",
       "description": "Portale clienti Bortone Antincendio: consulta impianti, interventi, documenti e richiedi assistenza.",
       "telephone": "+390670300981",
       "email": "info@bortoneantincendio.it",
+      "priceRange": "€€",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Via Casilina, 313A",
         "postalCode": "00176",
         "addressLocality": "Roma",
+        "addressRegion": "RM",
         "addressCountry": "IT"
       },
       "openingHours": "Mo-Fr 08:00-13:00,14:30-17:00",
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 41.8828,
-        "longitude": 12.5342
-      },
-      "areaServed": "Roma"
+      "geo": { "@type": "GeoCoordinates", "latitude": 41.8828, "longitude": 12.5342 },
+      "areaServed": [
+        { "@type": "City", "name": "Roma" },
+        { "@type": "AdministrativeArea", "name": "Provincia di Roma" }
+      ]
     }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -71,89 +77,91 @@
     <a href="#main" class="skip-link">Salta al contenuto</a>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="logo" href="index.html" aria-label="Bortone Antincendio">
+        <a class="logo" href="index.html" aria-label="Bortone Antincendio - Torna alla home">
           <img src="assets/logo-bortone.svg" alt="Logo Bortone Antincendio" width="646" height="806" />
         </a>
-        <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Apri menu">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Apri menu di navigazione">
           Menu
         </button>
-        <nav class="site-nav" id="site-nav">
+        <nav class="site-nav" id="site-nav" aria-label="Navigazione principale">
           <a href="index.html">Home</a>
           <a href="servizi.html">Servizi</a>
           <a href="prodotti.html">Prodotti</a>
           <a href="chi-siamo.html">Chi siamo</a>
           <a href="contatti.html">Contatti</a>
-          <a class="active" href="area-clienti.html">Area Clienti</a>
+          <a class="active" href="area-clienti.html" aria-current="page">Area Clienti</a>
         </nav>
         <a href="https://wa.me/393206472865" target="_blank" rel="noopener" class="header-icon-link" aria-label="Scrivici su WhatsApp">
-          <img src="assets/icons8-whatsapp-64.png" class="header-icon" alt="" width="28" height="28">
+          <img src="assets/icons8-whatsapp-64.png" class="header-icon" alt="" width="28" height="28" loading="lazy" decoding="async">
         </a>
       </div>
     </header>
 
-
     <main id="main">
-      <section class="hero area-clienti-hero">
+      <section class="hero area-clienti-hero" aria-labelledby="hero-title">
         <div class="hero-stripe" aria-hidden="true"></div>
         <div class="container">
           <div class="area-clienti-hero-inner">
-            <h1 class="reveal">Area Clienti</h1>
+            <h1 id="hero-title" class="reveal">Area Clienti</h1>
             <p class="reveal area-clienti-lead" data-delay="1">
               Accedi al portale dedicato per consultare impianti, interventi e documentazione.
             </p>
             <div class="area-clienti-cta reveal">
               <div class="area-clienti-cta-box">
-                <h3>Hai già le credenziali?</h3>
+                <h2>Hai già le credenziali?</h2>
                 <a href="https://app.taylorweb.it/login.php" class="button primary" target="_blank" rel="noopener noreferrer">Accedi</a>
               </div>
               <div class="area-clienti-cta-box">
-                <h3>Non sei registrato?</h3>
-                <a href="#" class="button home-services-cta" id="open-access-popup">Richiedi accesso</a>
+                <h2>Non sei registrato?</h2>
+                <button type="button" class="button home-services-cta" id="open-access-popup" aria-haspopup="dialog" aria-controls="access-popup-overlay">Richiedi accesso</button>
               </div>
             </div>
 
-            <!-- Popup Accesso Clienti globale -->
-              <div id="access-popup-overlay" class="access-popup-overlay" style="display:none;" aria-hidden="true">
-                <div class="access-popup-modal" role="dialog" aria-modal="true" aria-labelledby="access-popup-title">
-                  <button class="access-popup-close" id="close-access-popup" title="Chiudi" type="button">&times;</button>
-                  <h2 id="access-popup-title" class="access-popup-title">Richiedi accesso</h2>
-                  <div class="access-popup-menu">
-                    <span class="access-popup-menu-item active" data-type="azienda">Azienda/Privato</span>
-                    <span class="access-popup-menu-item" data-type="admin">Amministratore</span>
-                  </div>
-                  <form id="access-popup-form" class="access-popup-form" action="https://formspree.io/f/mjglabyd" method="post" style="display:block;">
-                    <input type="hidden" name="subject" value="Richiesta accesso area clienti" />
-                    <div class="form-honeypot" aria-hidden="true">
-                      <label for="access-popup-website">Non compilare</label>
-                      <input type="text" id="access-popup-website" name="website" tabindex="-1" autocomplete="off" />
-                    </div>
-                    <input type="text" id="access-popup-nome" name="name" placeholder="Nome azienda / Nome e cognome" required autocomplete="off" />
-                    <input type="email" name="email" placeholder="Email" required autocomplete="off" />
-                    <input type="tel" name="phone" placeholder="Numero di telefono" autocomplete="off" />
-                    <div class="access-popup-submit-wrap">
-                      <button type="submit" class="access-popup-submit" id="access-popup-submit-btn">Invia richiesta</button>
-                    </div>
-                    <div style="text-align:center; margin-top:10px; color:#111; font-size:0.98em; font-family:'Source Sans 3',sans-serif;">
-                      riceverai una mail con le tue credenziali di accesso
-                    </div>
-                    <p class="form-hint" id="access-popup-status"></p>
-                  </form>
+            <div id="access-popup-overlay" class="access-popup-overlay" hidden>
+              <div class="access-popup-modal" role="dialog" aria-modal="true" aria-labelledby="access-popup-title">
+                <button class="access-popup-close" id="close-access-popup" title="Chiudi" type="button" aria-label="Chiudi finestra">&times;</button>
+                <h2 id="access-popup-title" class="access-popup-title">Richiedi accesso</h2>
+                <div class="access-popup-menu" role="tablist" aria-label="Tipo di richiesta">
+                  <button type="button" class="access-popup-menu-item active" data-type="azienda" role="tab" aria-selected="true">Azienda/Privato</button>
+                  <button type="button" class="access-popup-menu-item" data-type="admin" role="tab" aria-selected="false">Amministratore</button>
                 </div>
+                <form id="access-popup-form" class="access-popup-form" action="https://formspree.io/f/mjglabyd" method="post" aria-label="Modulo richiesta credenziali area clienti">
+                  <input type="hidden" name="subject" value="RICHIESTA CREDENZIALI" />
+                  <input type="hidden" name="_origine" value="RICHIESTA CREDENZIALI" />
+                  <div class="form-honeypot" aria-hidden="true">
+                    <label for="access-popup-website">Non compilare</label>
+                    <input type="text" id="access-popup-website" name="website" tabindex="-1" autocomplete="off" />
+                  </div>
+                  <label for="access-popup-nome" class="visually-hidden">Nome azienda o nome e cognome</label>
+                  <input type="text" id="access-popup-nome" name="name" placeholder="Nome azienda / Nome e cognome" required autocomplete="organization" />
+                  <label for="access-popup-email" class="visually-hidden">Email</label>
+                  <input type="email" id="access-popup-email" name="email" placeholder="Email" required autocomplete="email" />
+                  <label for="access-popup-phone" class="visually-hidden">Numero di telefono</label>
+                  <input type="tel" id="access-popup-phone" name="phone" placeholder="Numero di telefono" autocomplete="tel" />
+                  <div class="access-popup-submit-wrap">
+                    <button type="submit" class="access-popup-submit" id="access-popup-submit-btn">Invia richiesta</button>
+                  </div>
+                  <p class="access-popup-info">
+                    Riceverai una mail con le tue credenziali di accesso.
+                  </p>
+                  <p class="form-hint" id="access-popup-status" role="status" aria-live="polite"></p>
+                </form>
               </div>
             </div>
           </div>
+        </div>
       </section>
 
-      <section class="section company-story area-clienti-section">
+      <section class="section company-story area-clienti-section" aria-labelledby="portale-title">
         <div class="container">
           <div class="section-header">
-            <h2 class="reveal">Il nostro portale</h2>
+            <h2 id="portale-title" class="reveal">Il nostro portale</h2>
             <p class="reveal" data-delay="1">
               Se siete già nostri clienti e desiderate conoscere lo stato di manutenzione<br>delle vostre attrezzature, vi offriamo la possibilità di farlo tramite il nostro <strong>portale dedicato</strong>
             </p>
           </div>
           <div class="company-story-body reveal">
-            <p style="font-family: 'Source Sans 3', sans-serif; font-size: 1.12rem;">
+            <p class="area-clienti-intro">
               Il nostro portale è stato creato appositamente per gestire il lavoro in modo facile, organizzato e personalizzabile. Attraverso di esso potrete usufruire delle seguenti <strong>funzioni:</strong>
             </p>
           </div>
@@ -175,8 +183,6 @@
               <strong>Estratto conto</strong> — Riepilogo di tutte le operazioni effettuate con i relativi costi.
             </li>
           </ul>
-
-          <!-- area-clienti-cta spostata sopra, subito sotto il titolo -->
         </div>
       </section>
     </main>
@@ -185,7 +191,7 @@
       <div class="container footer-grid">
         <div>
           <div class="footer-brand">
-            <img class="footer-logo" src="assets/loghetto-black.svg" alt="Logo Bortone Antincendio" width="646" height="806" />
+            <img class="footer-logo" src="assets/loghetto-black.svg" alt="Logo Bortone Antincendio" width="646" height="806" loading="lazy" decoding="async" />
             <div>
               <strong>Bortone Antincendio</strong>
               <p class="footer-highlight">Via Casilina, 313A 00176 Roma</p>
@@ -195,8 +201,12 @@
         </div>
         <div>
           <strong>Contatti</strong>
-          <p class="footer-highlight">info@bortoneantincendio.it</p>
-          <p class="footer-highlight">Tel. 06 / 70.300.981</p>
+          <p class="footer-highlight">
+            <a href="mailto:info@bortoneantincendio.it">info@bortoneantincendio.it</a>
+          </p>
+          <p class="footer-highlight">
+            <a href="tel:+390670300981">Tel. 06 / 70.300.981</a>
+          </p>
         </div>
       </div>
       <div class="container footer-legal">
@@ -208,6 +218,6 @@
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </body>
 </html>
